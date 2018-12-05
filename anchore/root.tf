@@ -21,7 +21,15 @@ resource "aws_instance" "anchore_instance" {
     instance_type = "${var.instance_type}"
     key_name = "${var.key_pair_name}"
 
+    user_data = "${file("anchore/user_data.sh")}"
+
+    security_groups = ["${var.security_group_name}"]
+
     tags {
         Name = "anchore_instance"
     }
+}
+
+output "anchore_instance_public_ip" {
+    value = "${aws_instance.anchore_instance.public_ip}"
 }
