@@ -29,5 +29,4 @@ mkdir /home/ubuntu/aevolume/db
 curl https://raw.githubusercontent.com/anchore/anchore-engine/master/scripts/docker-compose/docker-compose.yaml -o /home/ubuntu/aevolume/docker-compose.yaml
 curl https://raw.githubusercontent.com/anchore/anchore-engine/master/scripts/docker-compose/config.yaml -o /home/ubuntu/aevolume/config/config.yaml
 sed -i '1s/^/allow_awsecr_iam_auto: True\n/' /home/ubuntu/aevolume/config/config.yaml
-sed -i 's/password:\ .*/password: '\''R3cmU2aG78qK'\''/g' /home/ubuntu/aevolume/config/config.yaml
 cd /home/ubuntu/aevolume && docker-compose pull && docker-compose up -d
